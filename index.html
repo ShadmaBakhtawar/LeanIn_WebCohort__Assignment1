@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Shapes Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .animation-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shape {
+            position: absolute;
+            animation: moveAndTransform 3s infinite alternate;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43.3px solid #2ecc71;
+        }
+
+        @keyframes moveAndTransform {
+            0% {
+                transform: translateX(0) rotate(0);
+            }
+            50% {
+                transform: translateX(200px) rotate(180deg);
+            }
+            100% {
+                transform: translateX(0) rotate(360deg);
+            }
+        }
+
+        .shape:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 600px) {
+            .shape {
+                width: 30px;
+                height: 30px;
+            }
+
+            .triangle {
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-bottom: 25.8px solid #2ecc71;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animation-container">
+        <div class="shape square"></div>
+        <div class="shape circle" style="top: 100px; left: 150px;"></div>
+        <div class="shape triangle" style="top: 200px; left: 300px;"></div>
+    </div>
+</body>
+</html>
